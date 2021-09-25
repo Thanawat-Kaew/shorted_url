@@ -67,8 +67,7 @@ class HomeController extends Controller
                 $current_id     = $request->get('current_id');
                 $ogn_url        = $request->get('ogn_url');
                 $short_url      = $request->get('short_url');
-
-                //$domain = "http://127.0.0.1:8000/url/";
+                
                 $domain = "http://salty-cliffs-10650.herokuapp.com/url/";
                 if(substr($short_url,0,44) == $domain){
                     if(strlen($short_url) >= 45){
