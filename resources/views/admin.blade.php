@@ -28,13 +28,9 @@
                                 @foreach($url_all as $key => $value)
                                 <tr>
                                     <td class="text-center">{{ $key+1 }}</td>
-                                    <!--<td>http://127.0.0.1:8000/url/{{ $value->short_url }}</td>!-->
                                     <td>http://salty-cliffs-10650.herokuapp.com/url/{{ $value->short_url }}</td>
                                     <td>{{ substr($value->full_url,0,30).'...'}}</td>
                                     <td class="text-center">
-                                        <!--<button class="btn btn-warning">
-                                            <a href="www.google.com" style="color:black;">Edit</a>
-                                        </button>!-->
                                         <input type="button" value="Edit" class="btn btn-warning edit_url" data-id_url="{{$value->id}}">
                                     </td>
                                     <td class="text-center">
@@ -57,11 +53,9 @@
     $(document).ready(function() {
         $(".delete_url").click(function(){
             let id = $(this).data('id_url');
-            //$(this).closest('td').find("[name='id_url']").val(id);
             $("#id_url").val(id);
             if(confirm("แน่ใจจะลบข้อมูลใช่ไหม")){
                 $("#form1").attr('action', "{{route('admin.delete_url')}}");
-                //$("#id_url").attr('action', "{{route('admin.delete_url')}}");
                 $("#form1").submit();
             }
         })

@@ -13,21 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <!--<form action="#" method="post" id="form1">!-->
-                        <?php //echo csrf_field()?>
-                        <input type="hidden" id="id_url" name="id_url" value="{{$url->id}}">
-                        <input type="hidden" id="ogn_url" name="ogn_url" value="{{$url->short_url}}">
-                        <div style="display: flex; justify-content: center;">
-                            <!--<input type="text" name="short_url" class="short_url" style="width:500px;" value="http://127.0.0.1:8000/url/{{ $url->short_url}}">!-->
-                            <input type="text" name="short_url" class="short_url" style="width:500px;" value="http://salty-cliffs-10650.herokuapp.com/url/{{ $url->short_url}}">
-                        </div>
-                        <br>
-                        <div style="display: flex; justify-content: center;">
-                            <button id="submit">บันทึก</button>&nbsp;&nbsp;
-                            <button id="cancle">ยกเลิก</button>
-                            <!--<a href="/admin">aa</a>!-->
-                        </div>
-                    <!--</form>!-->
+                    <input type="hidden" id="id_url" name="id_url" value="{{$url->id}}">
+                    <input type="hidden" id="ogn_url" name="ogn_url" value="{{$url->short_url}}">
+                    <div style="display: flex; justify-content: center;">
+                        <input type="text" name="short_url" class="short_url" style="width:500px;" value="http://salty-cliffs-10650.herokuapp.com/url/{{ $url->short_url}}">
+                    </div>
+                    <br>
+                    <div style="display: flex; justify-content: center;">
+                        <button id="submit">บันทึก</button>&nbsp;&nbsp;
+                        <button id="cancle">ยกเลิก</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,7 +70,6 @@
         $("#cancle").click(function(){
             let ogn_url = $("#ogn_url").val();
             console.log(ogn_url);
-            //$(".short_url").val("http://127.0.0.1:8000/url/"+ogn_url+"");
             $(".short_url").val("http://salty-cliffs-10650.herokuapp.com/url/"+ogn_url+"");
         });
     });

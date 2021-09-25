@@ -48,7 +48,6 @@
                         console.log(result.status)
                         if(result.status == "success"){
                             $(".show_short_url").empty();
-                            //let show_short_url_html = '<input type="text" name="short_url" class="short_url" style="width:500px; background-color:#ccc;" value="http://127.0.0.1:8000/url/'+result.ran_url+'" readonly><button id="btn_edit_short">Edit</button>';
                             let show_short_url_html = '<input type="text" name="short_url" class="short_url" style="width:500px; background-color:#ccc;" value="http://salty-cliffs-10650.herokuapp.com/url/'+result.ran_url+'" readonly><button id="btn_edit_short">Edit</button>';
                             $(".show_short_url").append(show_short_url_html);
 
@@ -74,7 +73,6 @@
                                         success: function (result) {
                                             if(result.status == "success"){
                                                 alert("success");
-                                                //location.reload();
                                                 $(".short_url").attr("readonly", false); 
                                                 $(".short_url").css("background-color", "#ccc");
                                                 $('.btn_submit_cancle').empty();
@@ -96,7 +94,6 @@
                                 $("#cancle").click(function(){
                                     $(".short_url").attr("readonly", false); 
                                     $(".short_url").css("background-color", "#ccc");
-                                    //$(".short_url").val("http://127.0.0.1:8000/url/"+result.ran_url+"");
                                     $(".short_url").val("http://salty-cliffs-10650.herokuapp.com/url/"+result.ran_url+"");
                                     $('.btn_submit_cancle').empty();
                                 });

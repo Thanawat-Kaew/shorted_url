@@ -7,8 +7,6 @@ use App\Models\Url;
 class AdminController extends Controller{
     function deleteUrl(Request $request){
         $data       = $request->all();
-        //dd($data);
-        //exit;
         $url        = Url::where('id', $data['id_url'])->first();
         $url->delete();
         $url_all    = Url::all();
@@ -20,9 +18,4 @@ class AdminController extends Controller{
         $url        = Url::where('id', $data['id_url'])->first();
         return view('admin_edit', compact('url'));
     }
-
-    /*public function updateUrl(){
-        $url_all    = Url::all();
-        return view('admin', compact('url_all'));
-    }*/
 }
