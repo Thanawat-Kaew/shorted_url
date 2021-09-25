@@ -46,6 +46,7 @@
                     },
                     success: function (result) {
                         console.log(result.status)
+                        console.log(result.ran_url)
                         if(result.status == "success"){
                             $(".show_short_url").empty();
                             let show_short_url_html = '<input type="text" name="short_url" class="short_url" style="width:500px; background-color:#ccc;" value="http://salty-cliffs-10650.herokuapp.com/url/'+result.ran_url+'" readonly><button id="btn_edit_short">Edit</button>';

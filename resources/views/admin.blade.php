@@ -61,16 +61,16 @@
             let id = $(this).data('id_url');
             $("#id_url").val(id);
             if(confirm("แน่ใจจะลบข้อมูลใช่ไหม")){
-                $("#-manage-urlorm1").attr('action', "{{route('admin.delete_url')}}");
-                $("#-manage-urlorm1").submit();
+                $("#form-manage-url").attr('action', "{{route('admin.delete_url')}}");
+                $("#form-manage-url").submit();
             }
         });
 
         $("#table-shorted-url").on('click', '.edit_url', function(){
             let id = $(this).data('id_url');
             $("#id_url").val(id);
-            $("#-manage-urlorm1").attr('action', "{{route('admin.edit_url')}}");
-            $("#-manage-urlorm1").submit();
+            $("#form-manage-url").attr('action', "{{route('admin.edit_url')}}");
+            $("#form-manage-url").submit();
         });
     });
 </script>

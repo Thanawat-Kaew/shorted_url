@@ -74,17 +74,17 @@ class HomeController extends Controller
                         $explodeURL    = explode('/', $short_url);
                         $short_url     = end($explodeURL);
                         if($short_url != $ogn_url){
-                            $chk_data_duplicate     = Url::where('short_url',$short_url)->count();
+                            $chk_data_duplicate     = Url::where('short_url',$short_url)->where('id', '!=', $current_id)->count();
                             if($chk_data_duplicate == 0){
                                 $url = Url::where('id',$current_id)->first();
                                 $url->short_url = $short_url;
                                 $url->save();
-                                return response()->json(['status'=> 'success'] );
+                                return response()->json(['status'=> 'success']);
                             }else{
-                                return response()->json(['status'=> 'error3'] );
+                                return response()->json(['status'=> 'error3']);
                             }    
                         }else{
-                            return response()->json(['status'=> 'success'] );
+                            return response()->json(['status'=> 'success']);
                         }
                     }else{
                         return response()->json(['status'=> 'error2'] );
