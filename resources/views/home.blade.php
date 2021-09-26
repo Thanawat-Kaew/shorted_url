@@ -46,8 +46,6 @@
                         full_url : full_url
                     },
                     success: function (result) {
-                        console.log(result.status)
-                        console.log(result.ran_url)
                         if(result.status == "success"){
                             $("#ogn_url").val(result.ran_url);
                             var ogn_url = $("#ogn_url").val();
