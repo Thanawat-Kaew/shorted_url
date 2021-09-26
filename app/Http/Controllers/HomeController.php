@@ -79,12 +79,12 @@ class HomeController extends Controller
                                 $url = Url::where('id',$current_id)->first();
                                 $url->short_url = $short_url;
                                 $url->save();
-                                return response()->json(['status'=> 'success']);
+                                return response()->json(['status'=> 'success', 'ogn_url'=> $short_url] );
                             }else{
                                 return response()->json(['status'=> 'error3']);
                             }    
                         }else{
-                            return response()->json(['status'=> 'success']);
+                            return response()->json(['status'=> 'success', 'ogn_url'=> $short_url] );
                         }
                     }else{
                         return response()->json(['status'=> 'error2'] );

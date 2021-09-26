@@ -22,6 +22,7 @@
                     <br>
                     <div style="display: flex; justify-content: center;" class="btn_submit_cancle">
                     </div>
+                    <input type="hidden" id="ogn_url" value="">
                 </div>
             </div>
         </div>
@@ -48,6 +49,8 @@
                         console.log(result.status)
                         console.log(result.ran_url)
                         if(result.status == "success"){
+                            $("#ogn_url").val(result.ran_url);
+                            var ogn_url = $("#ogn_url").val();
                             $(".show_short_url").empty();
                             let show_short_url_html = '<input type="text" name="short_url" class="short_url" style="width:500px; background-color:#ccc;" value="http://salty-cliffs-10650.herokuapp.com/url/'+result.ran_url+'" readonly><button id="btn_edit_short">Edit</button>';
                             $(".show_short_url").append(show_short_url_html);
@@ -68,11 +71,12 @@
                                         data: {
                                             method : 'updateUrl',
                                             current_id : result.id,
-                                            ogn_url : result.ran_url,
+                                            ogn_url : ogn_url,
                                             short_url : short_url
                                         },
                                         success: function (result) {
                                             if(result.status == "success"){
+                                                $("#ogn_url").val(result.ogn_url);
                                                 alert("success");
                                                 $(".short_url").attr("readonly", false); 
                                                 $(".short_url").css("background-color", "#ccc");
@@ -95,7 +99,8 @@
                                 $("#cancle").click(function(){
                                     $(".short_url").attr("readonly", false); 
                                     $(".short_url").css("background-color", "#ccc");
-                                    $(".short_url").val("http://salty-cliffs-10650.herokuapp.com/url/"+result.ran_url+"");
+                                    var ogn_url = $("#ogn_url").val();
+                                    $(".short_url").val("http://salty-cliffs-10650.herokuapp.com/url/"+ogn_url+"");
                                     $('.btn_submit_cancle').empty();
                                 });
 
